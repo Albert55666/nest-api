@@ -12,6 +12,9 @@ export class AuthDto {
   @IsString()
   @IsNotEmpty()
   lastname: string;
+
+  @IsString()
+  firstname?: string;
 }
 
 export class LoginDto {
