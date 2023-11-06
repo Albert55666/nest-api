@@ -1,5 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../../src/prisma/prisma.service';
+// import { PrismaService } from 'src/prisma/prisma.service';
 import { AuthDto, LoginDto } from './dto';
 import * as argon from 'argon2';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
@@ -25,6 +26,7 @@ export class AuthService {
           email: dto.email,
           hash,
           lastname: dto.lastname,
+          firstname: dto.firstname,
         },
         //! this is to select the fields you want to recieve from the users obj
         //   select: {

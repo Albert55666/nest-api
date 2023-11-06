@@ -8,10 +8,16 @@ export class PrismaService extends PrismaClient {
     super({
       datasources: {
         db: {
-          // url: 'mysql://root:Aa09030621529%23@localhost:3306/FirstNest',
           url: config.get('DATABASE_URL'),
         },
       },
     });
+  }
+
+  cleanDb() {
+    return this.$transaction([
+      this.bookmark.deleteMany(),
+      this.user.deleteMany(),
+    ]);
   }
 }
